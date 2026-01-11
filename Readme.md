@@ -12,22 +12,25 @@ Fyf Calculator est une application console en .NET 9 permettant d'effectuer des 
 
 ## Prérequis
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) (pour le développement ou l'exécution via `dotnet run`)
+- **OU** le runtime .NET 9 uniquement (pour exécuter l'exécutable autonome)
 - Les packages NuGet suivants sont utilisés :
   - `System.CommandLine`
   - `Spectre.Console`
 
-## Installation
-
-Clonez le dépôt et restaurez les dépendances NuGet :
-
-git clone <votre-repo> cd <votre-repo> dotnet restore
-
 ## Utilisation
 
-Lancez l'application depuis la ligne de commande :
-dotnet run -- [commande] [arguments] [options]
+### Si vous avez le SDK ou le runtime .NET 9 installé
 
+Lancez l'application depuis la ligne de commande : `dotnet run -- [commande] [arguments] [options]`
+
+Ou, après publication : `fcalc [commande] [arguments] [options]`
+
+### Si vous n'avez PAS le runtime .NET installé
+
+1. Récupérez le fichier `fcalc.exe` généré dans le dossier correspondant a votre systeme `ex: win-x64`.
+2. **Option 1 :** Ajoutez le dossier contenant `fcalc.exe` à votre variable d'environnement `PATH` pour pouvoir l'exécuter depuis n'importe où.
+3. **Option 2 :** Exécutez les commandes directement dans le dossier où se trouve `fcalc.exe` : `./fcalc.exe [commande] [arguments] [options]`
 ### Commandes disponibles
 
 - `add` : Additionne une liste de nombres.
@@ -43,20 +46,19 @@ dotnet run -- [commande] [arguments] [options]
 
 ### Exemples
 
-Addition de deux nombres avec 3 décimales :		dotnet run -- add 10.124 20.276 -p 3
+Addition de deux nombres avec 3 décimales : `fcalc add 10.124 20.276 -p 3`
 
-Soustraction de plusieurs nombres avec format significatif :		dotnet run -- sub 100 20 5 -f G -p 4
+Soustraction de plusieurs nombres avec format significatif : `fcalc sub 100 20 5 -f G -p 4`
 
-Multiplication de plusieurs nombres :		dotnet run -- mty 2 3 4
+Multiplication de plusieurs nombres : `fcalc mty 2 3 4`
 
-Division de deux nombres avec 5 décimales :		dotnet run -- div 10 3 -f F -p 5
-
+Division de deux nombres avec 5 décimales : `fcalc div 10 3 -f F -p 5`
 
 ## Aide
 
-Pour afficher l'aide :		dotnet run -- --help
-Pour afficher l'aide d'une commande spécifique :		dotnet run -- [commande] --help
+Pour afficher l'aide : `fcalc --help`
 
+Pour afficher l'aide d'une commande spécifique : `fcalc [commande] --help`
 
 ## Structure du projet
 
@@ -67,6 +69,3 @@ Pour afficher l'aide d'une commande spécifique :		dotnet run -- [commande] --hel
 
 ## Contribution
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir des issues ou des pull requests pour améliorer l'application.
-
-## Licence
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
